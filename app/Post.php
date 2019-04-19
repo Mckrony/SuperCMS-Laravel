@@ -9,8 +9,7 @@ class Post extends Model
 {
 
 
-    use Sluggable;
-    use SluggableScopeHelpers;
+
 
 
 
@@ -26,14 +25,7 @@ class Post extends Model
 
     ];
 
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+
 
 
 

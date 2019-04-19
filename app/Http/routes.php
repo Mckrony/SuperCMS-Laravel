@@ -70,3 +70,6 @@ Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post'
 
 
 //});
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
