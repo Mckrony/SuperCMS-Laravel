@@ -11,11 +11,9 @@
 
     <title>Blog Home - Start Bootstrap Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/blog-home.css" rel="stylesheet">
+    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+            <a class="navbar-brand" href="#">Start Bootstrap Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -52,6 +50,9 @@
                 </li>
                 <li>
                     <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="">Login</a>
                 </li>
             </ul>
         </div>
@@ -141,10 +142,10 @@
                 <h4>Blog Search</h4>
                 <div class="input-group">
                     <input type="text" class="form-control">
-                        <span class="input-group-btn">
+                    <span class="input-group-btn">
                             <button class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"></span>
-                            </button>
+                        </button>
                         </span>
                 </div>
                 <!-- /.input-group -->
@@ -212,10 +213,7 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/libs.js')}}"></script>
 
 </body>
 
