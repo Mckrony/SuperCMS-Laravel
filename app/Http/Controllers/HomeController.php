@@ -16,11 +16,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $post = Post::all();
+        $posts = Post::all();
+        //$pd = $posts->title;
 
         // $comments = $post->comments()->whereIsActive(1)->get();
 
-
-        return view('post', compact('post'));
+        //dd($posts);
+        return view('home', compact('posts'));
+        //return $posts;
     }
 }
