@@ -18,3 +18,25 @@
             @endforeach
         @stop
 
+
+@section('category')
+
+    <div class="well">
+        <h4>Blog Categories</h4>
+        <div class="row">
+            <div class="col-lg-6">
+                <ul class="list-unstyled">
+                    @foreach($cats as $cat)
+                    <li><a href="{{ url('/home', $cat->id) }}">{{$cat->name}}</a>
+                        @endforeach
+                    </li>
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
+
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+    @endsection

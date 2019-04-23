@@ -51,9 +51,18 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
-                <li>
-                    <a href="">Login</a>
-                </li>
+                @if (Auth::guest())
+                    <li>
+                        <a href="{{ url('/login') }}">Login</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/register') }}">Register</a>
+                    </li>
+                @else
+                    <li>
+                        <a href="{{ url('/logouts') }}">Logout</a>
+                    </li>
+                @endif
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -110,38 +119,7 @@
             </div>
 
             <!-- Blog Categories Well -->
-            <div class="well">
-                <h4>Blog Categories</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                            <li><a href="#">Category Name</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.col-lg-6 -->
-                </div>
-                <!-- /.row -->
-            </div>
+            @yield('category')
 
             <!-- Side Widget Well -->
             <div class="well">
