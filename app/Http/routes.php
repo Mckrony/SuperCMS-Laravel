@@ -6,9 +6,7 @@
 //    return view('welcome');
 //});
 
-Route::get('/admin', function () {
-    return view('admin.index');
-});
+
 
 Route::get('/', function () {
     return view('home');
@@ -23,13 +21,16 @@ Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post'
 
 
 
-//Route::group(['middleware'=>'admin'], function(){
+Route::group(['middleware'=>'admin'], function(){
 
-    Route::get('/admin', function(){
-
+//    Route::get('/Admin', function(){
+//
+//        return view('admin.index');
+//
+//
+//    });
+    Route::get('/admin', function () {
         return view('admin.index');
-
-
     });
 
 
@@ -51,7 +52,7 @@ Route::post('', 'CommentRepliesController@createReply');
     //
 //Route::resource('a', 'CommentRepliesController');
 
-//});
+});
 
 
 
@@ -67,5 +68,6 @@ Route::post('', 'CommentRepliesController@createReply');
 Route::auth();
 
 Route::get('/Front', 'HomeshowController@index');
+
 
 Route::get('/logouts', 'HomeshowController@create');

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -69,20 +70,10 @@ class User extends Authenticatable
 
 
     public function isAdmin(){
-
-
-        if($this->role->name  == "administrator" && $this->is_active == 1){
-
-
+        if (User::role_id == 1){
             return true;
-
         }
-
-
         return false;
-
-
-
     }
 
 
@@ -104,5 +95,12 @@ class User extends Authenticatable
         return "http://www.gravatar.com/avatar/$hash";
 
 
+    }
+
+    public function isAdminloggedin(){
+        if (Auth::check()){
+            // $is =
+        }
+        return false;
     }
 }

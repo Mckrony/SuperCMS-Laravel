@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use mysql_xdevapi\Session;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeshowController extends Controller
 {
@@ -15,6 +17,20 @@ class HomeshowController extends Controller
     {
         $posts = Post::all();
         $cats = Category::all();
+//        $rl = User::all();
+        //$role = 0;
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $rl = User::where('id', '=', $user_id)->get();
+            foreach ($rl as $r) {
+                $role = $r['role_id'];
+                //return $role;
+                session(['key' => $role]);
+                return view('Front', compact('posts', 'cats'));
+            }
+        }
+
+
 
         return view('Front', compact('posts', 'cats'));
     }
@@ -26,6 +42,7 @@ class HomeshowController extends Controller
     {
         session()->forget('name');
         session()->forget('email');
+        session()->forget('key');
         session()->flush();
 
         $posts = Post::all();
