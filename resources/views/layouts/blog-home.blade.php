@@ -20,6 +20,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <![endif]-->
 
 </head>
@@ -37,19 +38,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap Home</a>
+            <a class="navbar-brand" href="{{ url('/Front') }}">Geekadelphia</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">About</a>
+                    <a href="{{ url('/about') }}">About</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="{{ url('/services') }}">Services</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="{{ url('/contact') }}">Contact</a>
                 </li>
                 @if (Auth::guest())
                     <li>
@@ -62,6 +63,11 @@
                     <li>
                         <a href="{{ url('/logouts') }}">Logout</a>
                     </li>
+                @if(session('key') == '1')
+                    <li>
+                        <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
+                    </li>
+                    @endif
                 @endif
             </ul>
         </div>

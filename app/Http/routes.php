@@ -2,15 +2,22 @@
 
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-
-
-Route::get('/', function () {
-    return view('home');
+Route::get('/about', function () {
+    return view('Extras.about');
 });
+
+Route::get('/services', function () {
+    return view('Extras.services');
+});
+
+Route::get('/contact', function () {
+    return view('Extras.contact');
+});
+
+//Route::get('/', function () {
+//    return view('Front');
+//});
+//Route::get('/', 'HomeshowController@index');
 
 Route::auth();
 
@@ -40,7 +47,7 @@ Route::group(['middleware'=>'admin'], function(){
 
     Route::resource('admin/categories', 'AdminCategoriesController');
 
-    Route::resource('admin/media', 'AdminMediasController');
+    Route::resource('admin/media', 'AdminMediasController@destroy');
 
 Route::post('', 'CommentRepliesController@createReply');
 
