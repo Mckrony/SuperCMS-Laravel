@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(2);
         $cats = Category::all();
         //$pd = $posts->title;
 

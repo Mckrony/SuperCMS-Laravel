@@ -37,40 +37,18 @@ class AdminPostsController extends Controller
 
     public function store(Request $request)
     {
-        //
         $input = $request->all();
-
-
         $user = Auth::user();
-
-
         if($file = $request->file('photo_id')){
-
-
             $name = time() . $file->getClientOriginalName();
-
-
             $file->move('images', $name);
-
             $photo = Photo::create(['file'=>$name]);
-
-
             $input['photo_id'] = $photo->id;
-
-
         }
-
-
-
-
         $user->posts()->create($input);
-
-
-
-
         return redirect('/admin/posts');
 
-
+        //return $input;
     }
 
 
@@ -125,9 +103,10 @@ class AdminPostsController extends Controller
         //
         $post = Post::findOrFail($id);
 
-        unlink(public_path() . $post->photo->file);
-
         $post->delete();
+//        unlink(public_path() . $post->photo->file);
+//
+//        $post->delete();
 
         return redirect('/admin/posts');
     }

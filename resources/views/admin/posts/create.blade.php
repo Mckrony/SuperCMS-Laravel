@@ -33,7 +33,10 @@
             {!! Form::textarea('body', null, ['class'=>'form-control'])!!}
         </div>
 
-
+        <div class="form-group">
+            {!! Form::label('torrent_link', 'Torrent Magnet Link:') !!}
+            {!! Form::text('torrent_link', null, ['class'=>'form-control'])!!}
+        </div>
 
 
         <div class="form-group">

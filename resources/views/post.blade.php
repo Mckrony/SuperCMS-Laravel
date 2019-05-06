@@ -17,6 +17,10 @@
     <hr>
     <p>{!!$post->body!!}</p>
     <hr>
+    @if (!Auth::guest())
+        <a  href="{{$post->torrent_link}}" title="Get this torrent"><img src="{{ asset('images/mg.png')}}" style="height: 20px; width: 20px"> Get this torrent</a>
+        @endif
+    <hr>
     @if(Session::has('comment_message'))
 
         {{session('comment_message')}}
@@ -89,7 +93,8 @@
                                                 {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
                                             </div>
                                             {!! Form::close() !!}
-                                        </div>
+
+                                            Get this torrent   </div>
                                         <!-- End Nested Comment -->
                                     </div>
                                 </div>

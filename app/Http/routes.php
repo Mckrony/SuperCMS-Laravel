@@ -47,7 +47,7 @@ Route::group(['middleware'=>'admin'], function(){
 
     Route::resource('admin/categories', 'AdminCategoriesController');
 
-    Route::resource('admin/media', 'AdminMediasController@destroy');
+    Route::resource('admin/media', 'AdminMediasController');
 
 Route::post('', 'CommentRepliesController@createReply');
 

@@ -14,9 +14,18 @@
         <hr>
         <img class="img-responsive" src="{{$post->photo ? $post->photo->file : null}}" alt="">
         <hr>
-        <p>{{$post->body}}</p>
+        <p>{!! str_limit($post->body, $limit = 100) !!}</p>
         <a class="btn btn-primary" href="{{ url('/post', $post->id) }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
     @endforeach
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-5">
+
+            {{$posts->render()}}
+
+        </div>
+    </div>
+
 @stop
 
 
@@ -39,5 +48,7 @@
         </div>
         <!-- /.row -->
     </div>
+
+
 
 @endsection
