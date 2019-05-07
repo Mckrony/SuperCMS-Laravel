@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home - Start Bootstrap Template</title>
+    <title>Geekadelphia</title>
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
@@ -52,6 +52,9 @@
                 <li>
                     <a href="{{ url('/contact') }}">Contact</a>
                 </li>
+
+
+
                 @if (Auth::guest())
                     <li>
                         <a href="{{ url('/login') }}">Login</a>
@@ -62,13 +65,20 @@
                 @else
                     <li>
                         <a href="{{ url('/logouts') }}">Logout</a>
-                    </li>
+
                 @if(session('key') == '1')
                     <li>
                         <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
                     </li>
+                        </li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
+                        <li>
+                            <a href=""> Welcome {{Auth::user()->name}}</a>
+                        </li>
+
                     @endif
                 @endif
+
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -84,10 +94,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-            <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
-            </h1>
+
 
             @yield('sps')
 
@@ -128,10 +135,7 @@
             @yield('category')
 
             <!-- Side Widget Well -->
-            <div class="well">
-                <h4>Side Widget Well</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-            </div>
+
 
         </div>
 

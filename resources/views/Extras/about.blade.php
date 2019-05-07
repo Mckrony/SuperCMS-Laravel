@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>About</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -52,30 +52,44 @@
 <!-- Footer / About Section -->
 <footer class="w3-light-grey w3-padding-64 w3-center" id="about">
     <h2>About</h2>
-    <img src="{{ asset('img/streetart4.jpg')}}" class="w3-image w3-padding-32" width="240" height="240">
-    <img src="{{ asset('img/streetart4.jpg')}}" class="w3-image w3-padding-32" width="240" height="240">
-    <img src="{{ asset('img/streetart4.jpg')}}" class="w3-image w3-padding-32" width="240" height="240">
-    <img src="{{ asset('img/streetart4.jpg')}}" class="w3-image w3-padding-32" width="240" height="240">
-    <img src="{{ asset('img/streetart4.jpg')}}" class="w3-image w3-padding-32" width="240" height="240">
-    <form style="margin:auto;width:60%" action="/action_page.php" target="_blank">
-        <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        <p class="w3-large w3-text-pink">Do not hesitate to contact me!</p>
-        <div class="w3-section">
-            <label><b>Name</b></label>
-            <input class="w3-input w3-border" type="text" required name="Name">
+    <div class="w3-container w3-padding-64 w3-center" id="team">
+        <h2>OUR TEAM</h2>
+        <p>Meet the team - our precious squad</p>
+
+        <div class=""><br>
+
+            <div class="col-sm-3">
+                <img src="img/12.jpg" alt="Boss" style="width:140px; height: 140px" class="w3-circle w3-hover-opacity">
+                <h3>Soham Roy</h3>
+
+            </div>
+
+            <div class="col-sm-3">
+                <img src="img/10.jpg" alt="Boss" style="width:140px; height: 140px" class="w3-circle w3-hover-opacity">
+                <h3>Aditya Rahut</h3>
+
+            </div>
+
+            <div class="col-sm-2">
+                <img src="img/13.jpg" alt="Boss" style="width:140px; height: 140px" class="w3-circle w3-hover-opacity">
+                <h3>Ivy Saha</h3>
+
+            </div>
+
+            <div class="col-sm-2">
+                <img src="img/11.jpg" alt="Boss" style="width:140px; height: 140px"class="w3-circle w3-hover-opacity">
+                <h3>Tanay Das</h3>
+
+            </div>
+
+            <div class="col-sm-2">
+                <img src="img/15.jpg" alt="Boss" style="width:140px; height: 140px"class="w3-circle w3-hover-opacity">
+                <h3>Sreeparna Dutta</h3>
+
+            </div>
         </div>
-        <div class="w3-section">
-            <label><b>Email</b></label>
-            <input class="w3-input w3-border" type="text" required name="Email">
-        </div>
-        <div class="w3-section">
-            <label><b>Message</b></label>
-            <input class="w3-input w3-border" required name="Message">
-        </div>
-        <button type="submit" class="w3-button w3-block w3-dark-grey">Send</button>
-    </form>
-    <br>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </div>
+
 </footer>
 
 </body>

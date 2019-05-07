@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Services</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -77,10 +77,37 @@
 
     <p>FAQ</p>
     <div class="container">
-    <button class="collapsible">Open Collapsible</button>
+    <button class="collapsible">Where can I find my personalized recommendations?</button>
     <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Geekadelphia makes personalized recommendations to help you discover movies and TV shows that you will love.
+
+
+            Recommended titles will show under the section "Recommend For You" on the Geekadelphia homepage.</p>
     </div>
+    </div>
+    <div class="container">
+        <button class="collapsible">How does Geekadelphia know what I showed interest in?</button>
+        <div class="content">
+            <p>When you give a movie a positive rating or add a movie to your Watchlist, we track that as a movie that you are interested in.</p>
+        </div>
+    </div>
+    <div class="container">
+        <button class="collapsible">How can I improve my personalized recommendations?</button>
+        <div class="content">
+            <p>To improve your personalized recommendations, find and rate the movies that you love.
+
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <button class="collapsible">What does uncredited mean?</button>
+        <div class="content">
+            <p>The word uncredited next to a name means that the person did not receive an on-screen credit -- in other words, their name does not appear in the main or end titles of the film or show.
+
+
+
+            </p>
+        </div>
     </div>
 
     <script>

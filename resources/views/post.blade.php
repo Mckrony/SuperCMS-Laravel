@@ -26,23 +26,46 @@
         {{session('comment_message')}}
     @endif
     <!-- Blog Comments -->
+{{--    @if(Auth::check())--}}
+{{--        <!-- Comments Form -->--}}
+{{--        <div class="well">--}}
+{{--            <h4>Leave a Comment:</h4>--}}
+{{--            {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store']) !!}--}}
+{{--            <input type="hidden" name="post_id" value="{{$post->id}}">--}}
+{{--            <div class="form-group">--}}
+{{--                {!! Form::label('body', 'Body:') !!}--}}
+{{--                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}--}}
+{{--            </div>--}}
+{{--            <div class="form-group">--}}
+{{--                {!! Form::submit('Submit comment', ['class'=>'btn btn-primary']) !!}--}}
+{{--            </div>--}}
+{{--            {!! Form::close() !!}--}}
+
+{{--        </div>--}}
+{{--    @endif--}}
     @if(Auth::check())
         <!-- Comments Form -->
         <div class="well">
-            <h4>Leave a Comment:</h4>
-            {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store']) !!}
-            <input type="hidden" name="post_id" value="{{$post->id}}">
-            <div class="form-group">
-                {!! Form::label('body', 'Body:') !!}
-                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}
-            </div>
-            <div class="form-group">
-                {!! Form::submit('Submit comment', ['class'=>'btn btn-primary']) !!}
-            </div>
-            {!! Form::close() !!}
+            @if(Session::has('message'))
+                {{session('message')}}
+            @endif
 
+            <h4>Leave a Comment:</h4>
+            {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store', 'files'=>true]) !!}
+
+            <input type="hidden" name="post_id" value="{{$post->id}}">
+
+            <div class="form-group">
+                {!! Form::textarea('body', null, ['class'=>'form-control', 'placeholder'=>'Name', 'rows'=>3]) !!}
+            </div>
+
+
+            {!! Form::submit('Comment', ['class'=>'btn btn-primary']) !!}
+
+            {!! Form::close() !!}
         </div>
     @endif
+
     <hr>
     <!-- Posted Comments -->
     <!-- Comment -->
@@ -69,7 +92,7 @@
                                         <img height="64" class="media-object" src="{{$reply->photo}}" alt="">
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading"{{$reply->author}}
+                                        <h4 class="media-heading">{{$reply->author}}
                                         <small>{{$reply->created_at->diffForHumans()}}</small>
                                         </h4>
                                         <p>{{$reply->body}}</p>
@@ -114,6 +137,29 @@
     @endif
 
 @stop
+@section('category')
+
+    <div class="well">
+        <h4>Blog Categories</h4>
+        <div class="row">
+            <div class="col-lg-6">
+                <ul class="list-unstyled">
+                    @foreach($cats as $cat)
+                        <li><a href="{{ url('/Front', $cat->id) }}">{{$cat->name}}</a>
+                            @endforeach
+                        </li>
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
+
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+
+@endsection
 
 @section('scripts')
     <script>

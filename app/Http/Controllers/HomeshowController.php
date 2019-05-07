@@ -15,7 +15,7 @@ class HomeshowController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(4);
         $cats = Category::all();
 //        $rl = User::all();
         //$role = 0;
@@ -74,17 +74,18 @@ class HomeshowController extends Controller
     {
         //
     }
-    public function post(){
+    public function post($id){
 
 
-        $post = Post::all();
+        $posts = Post::where('category_id', $id)->paginate(2);
+        $cats = Category::all();
 
 
         //$comments = $post->comments()->whereIsActive(1)->get();
 
 
 
-        return view('home', compact('post'));
+        return view('Front', compact('posts', 'cats'));
 
 
     }

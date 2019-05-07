@@ -115,13 +115,14 @@ class AdminPostsController extends Controller
 
 
         $post = Post::findOrFail($id);
+        $cats = Category::all();
 
 
         $comments = $post->comments()->whereIsActive(1)->get();
 
 
 
-        return view('post', compact('post', 'comments'));
+        return view('post', compact('post', 'comments', 'cats'));
 
 
     }
