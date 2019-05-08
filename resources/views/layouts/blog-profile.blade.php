@@ -9,9 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Posts</title>
+    <title>Geekadelphia</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
@@ -53,6 +52,9 @@
                 <li>
                     <a href="{{ url('/contact') }}">Contact</a>
                 </li>
+
+
+
                 @if (Auth::guest())
                     <li>
                         <a href="{{ url('/login') }}">Login</a>
@@ -63,13 +65,20 @@
                 @else
                     <li>
                         <a href="{{ url('/logouts') }}">Logout</a>
-                    </li>
+
                     @if(session('key') == '1')
                         <li>
                             <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
                         </li>
+                        </li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
+                        <li>
+                            <a href=""> Welcome {{Auth::user()->name}}</a>
+                        </li>
+
                     @endif
                 @endif
+
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -79,57 +88,21 @@
 
 <!-- Page Content -->
 <div class="container">
-
-    <div class="row">
-
-        <!-- Blog Post Content Column -->
-        <div class="col-lg-8">
-
-            <!-- Blog Post -->
-
-
-
-            @yield('content')
-
-
-
-        </div>
-
-        <!-- Blog Sidebar Widgets Column -->
-        <div class="col-md-4">
-
-            <!-- Blog Search Well -->
-
-
-            <!-- Blog Categories Well -->
-        @yield('category')
-
-            <!-- Side Widget Well -->
-
-
-        </div>
-
-    </div>
-    <!-- /.row -->
-
+    @yield('content')
     <hr>
-
-    <!-- Footer -->
     <footer>
         <div class="row">
             <div class="col-lg-12">
                 <p>Copyright &copy; Your Website 2014</p>
             </div>
+            <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
     </footer>
 
 </div>
-<!-- /.container -->
-
-<!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
-@yield('scripts')
+
 </body>
 
 </html>

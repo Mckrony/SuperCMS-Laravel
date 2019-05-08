@@ -19,30 +19,13 @@
     <hr>
     @if (!Auth::guest())
         <a  href="{{$post->torrent_link}}" title="Get this torrent"><img src="{{ asset('images/mg.png')}}" style="height: 20px; width: 20px"> Get this torrent</a>
-        @endif
+    @endif
     <hr>
     @if(Session::has('comment_message'))
 
         {{session('comment_message')}}
     @endif
-    <!-- Blog Comments -->
-{{--    @if(Auth::check())--}}
-{{--        <!-- Comments Form -->--}}
-{{--        <div class="well">--}}
-{{--            <h4>Leave a Comment:</h4>--}}
-{{--            {!! Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store']) !!}--}}
-{{--            <input type="hidden" name="post_id" value="{{$post->id}}">--}}
-{{--            <div class="form-group">--}}
-{{--                {!! Form::label('body', 'Body:') !!}--}}
-{{--                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>3])!!}--}}
-{{--            </div>--}}
-{{--            <div class="form-group">--}}
-{{--                {!! Form::submit('Submit comment', ['class'=>'btn btn-primary']) !!}--}}
-{{--            </div>--}}
-{{--            {!! Form::close() !!}--}}
 
-{{--        </div>--}}
-{{--    @endif--}}
     @if(Auth::check())
         <!-- Comments Form -->
         <div class="well">
@@ -72,7 +55,6 @@
     <hr>
     @if(count($comments) > 0)
         @foreach($comments as $comment)
-
             <!-- Comment -->
             <div class="media">
                 <a class="pull-left" href="#">
@@ -83,52 +65,35 @@
                         <small>{{$comment->created_at->diffForHumans()}}</small>
                     </h4>
                     <p>{{$comment->body}}</p>
-                @if(count($comment->replies) > 0)
-                    @foreach($comment->replies as $reply)
-                        @if($reply->is_active == 1)
-                            <!-- Nested Comment -->
-                                <div id="nested-comment" class=" media">
-                                    <a class="pull-left" href="#">
-                                        <img height="64" class="media-object" src="{{$reply->photo}}" alt="">
-                                    </a>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">{{$reply->author}}
-                                        <small>{{$reply->created_at->diffForHumans()}}</small>
-                                        </h4>
-                                        <p>{{$reply->body}}</p>
-                                    </div>
-                                    <div class="comment-reply-container">
+
+                    @if(count($comment->replies) >= 0)
+                        @foreach($comment->replies as $reply)
 
 
-                                        <button class="toggle-reply btn btn-primary pull-right">Reply</button>
-
-                                        <div class="comment-reply col-sm-6">
-                                            {!! Form::open(['method'=>'POST', 'action'=> 'CommentRepliesController@createReply']) !!}
-                                            <div class="form-group">
-
-                                                <input type="hidden" name="comment_id" value="{{$comment->id}}">
-
-                                                {!! Form::label('body', 'Body:') !!}
-                                                {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>1])!!}
-                                            </div>
-
-                                            <div class="form-group">
-                                                {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
-                                            </div>
-                                            {!! Form::close() !!}
-
-                                            Get this torrent   </div>
-                                        <!-- End Nested Comment -->
-                                    </div>
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object" src="http://placehold.it/64x64" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Nested Start Bootstrap
+                                        <small>August 25, 2014 at 9:30 PM</small>
+                                    </h4>
+                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                                 </div>
-                            @else
+                                {!! Form::open(['method'=>'POST', 'action'=> 'CommentRepliesController@createReply']) !!}
+                                <div class="form-group">
 
+                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
 
-{{--                                <h1 class="text-center">No Replies</h1>--}}
+                                    {!! Form::label('body', 'Body:') !!}
+                                    {!! Form::textarea('body', null, ['class'=>'form-control','rows'=>1])!!}
+                                </div>
 
-
-
-                            @endif
+                                <div class="form-group">
+                                    {!! Form::submit('submit', ['class'=>'btn btn-primary']) !!}
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
                         @endforeach
                     @endif
                 </div>
@@ -163,13 +128,8 @@
 
 @section('scripts')
     <script>
-
         $(".comment-reply-container .toggle-reply").click(function(){
             $(this).next().slideToggle("slow");
         });
-
-
-
-
     </script>
 @stop

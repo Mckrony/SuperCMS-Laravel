@@ -52,12 +52,21 @@ class HomeshowController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $par = $request['search'];
+        $posts = Post::where('title', 'like', '%' . $par . '%')->paginate(2);
+        // return $s;
+        $cats = Category::all();
+        return view('Front', compact('posts', 'cats'));
+
+
     }
 
     public function show($id)
     {
-        //
+        $ids = $id;
+        $user = User::where('id', '=', $ids)->get();
+        //return $user;
+       return view('profiles', compact('user'));
     }
 
     public function edit($id)

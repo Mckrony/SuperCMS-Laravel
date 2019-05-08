@@ -61,6 +61,7 @@ Route::resource('admin/comments', 'PostCommentsController');
 Route::group(['middleware'=>'auth'], function (){
 
     Route::post('comment/reply', 'CommentRepliesController@createReply');
+    Route::get('/user/{id}', 'HomeshowController@show');
 
 });
 
@@ -70,5 +71,6 @@ Route::get('/Comment', 'PostCommentController@store');
 Route::get('/Front', 'HomeshowController@index');
 Route::get('/Front/{id}', 'HomeshowController@post');
 
+Route::resource('/search', 'HomeshowController@store');
 
 Route::get('/logouts', 'HomeshowController@create');

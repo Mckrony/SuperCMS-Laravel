@@ -121,12 +121,15 @@
             <div class="well">
                 <h4>Blog Search</h4>
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <form action="{{ url('/search') }}" method="post">
+                        {{ csrf_field() }}
+                    <input type="text" name="search" class="form-control" style="width: 280px">
                     <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
+                            <button class="btn btn-default" name="submit" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
                         </button>
                         </span>
+                    </form>
                 </div>
                 <!-- /.input-group -->
             </div>
