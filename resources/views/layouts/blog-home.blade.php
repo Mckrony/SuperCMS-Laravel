@@ -66,17 +66,18 @@
                     <li>
                         <a href="{{ url('/logouts') }}">Logout</a>
 
-                @if(session('key') == '1')
-                    <li>
-                        <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
-                    </li>
+                    @if(session('key') == '1')
+                        <li>
+                            <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
+                        </li>
+
+
+                        @endif
                         </li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
                         <li>
                             <a href=""> Welcome {{Auth::user()->name}}</a>
                         </li>
-
                     @endif
-                @endif
 
 
             </ul>
@@ -123,8 +124,8 @@
                 <div class="input-group">
                     <form action="{{ url('/search') }}" method="post">
                         {{ csrf_field() }}
-                    <input type="text" name="search" class="form-control" style="width: 280px">
-                    <span class="input-group-btn">
+                        <input type="text" name="search" class="form-control" style="width: 280px">
+                        <span class="input-group-btn">
                             <button class="btn btn-default" name="submit" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
                         </button>
@@ -135,9 +136,9 @@
             </div>
 
             <!-- Blog Categories Well -->
-            @yield('category')
+        @yield('category')
 
-            <!-- Side Widget Well -->
+        <!-- Side Widget Well -->
 
 
         </div>

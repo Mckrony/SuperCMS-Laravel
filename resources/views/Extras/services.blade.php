@@ -127,8 +127,7 @@
         }
     </script>
     <br>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
+ </footer>
 
 </body>
 </html>

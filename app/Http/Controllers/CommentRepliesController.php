@@ -66,17 +66,26 @@ class CommentRepliesController extends Controller
     }
     public function createReply(Request $request){
 
+//        $user = Auth::user();
+//        $data = [
+//
+//            'comment_id' => $request->comment_id,
+//            'author'=> $user->name,
+//            'email' =>$user->email,
+//            'photo'=>$user->photo->file,
+//            'body'=>$request->body
+//        ];
+//        CommentReply::create($data);
+//        $request->session()->flash('reply_message','Your reply has been submitted and is waiting moderation');
+//        return redirect()->back();
         $user = Auth::user();
-        $data = [
-
-            'comment_id' => $request->comment_id,
-            'author'=> $user->name,
-            'email' =>$user->email,
-            'photo'=>$user->photo->file,
-            'body'=>$request->body
-        ];
-        CommentReply::create($data);
-        $request->session()->flash('reply_message','Your reply has been submitted and is waiting moderation');
+        $input['comment_id']=$request->comment_id;
+        $input['author']=$user->name;
+        $input['email']=$user->email;
+        $input['body']=$request->body;
+        $input['photo']=$user->photo->file;
+        CommentReply::create($input);
+        $request->session()->flash('reply_message', 'Your reply has been submitted');
         return redirect()->back();
     }
 }

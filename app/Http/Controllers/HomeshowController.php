@@ -24,8 +24,10 @@ class HomeshowController extends Controller
             $rl = User::where('id', '=', $user_id)->get();
             foreach ($rl as $r) {
                 $role = $r['role_id'];
-                //return $role;
+                $named = $r['name'];
+                //return $named;
                 session(['key' => $role]);
+                //session(['key' => $named]);
                 return view('Front', compact('posts', 'cats'));
             }
         }
