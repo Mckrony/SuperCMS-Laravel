@@ -48,9 +48,12 @@ class HomeshowController extends Controller
         session()->forget('key');
         session()->flush();
 
-        $posts = Post::paginate(2);
-        $cats = Category::all();
-        return view('Front', compact('posts', 'cats'));
+//        $posts = Post::paginate(2);
+//        $cats = Category::all();
+//        return view('Front', compact('posts', 'cats'));
+
+
+        return redirect()->back();
     }
 
     public function store(Request $request)
