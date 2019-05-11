@@ -50,9 +50,7 @@
                 <li>
                     <a href="{{ url('/services') }}">Services</a>
                 </li>
-                <li>
-                    <a href="{{ url('/contact') }}">Contact</a>
-                </li>
+
                 @if (Auth::guest())
                     <li>
                         <a href="{{ url('/login') }}">Login</a>
@@ -115,14 +113,7 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-        </div>
-        <!-- /.row -->
-    </footer>
+
 
 </div>
 <!-- /.container -->

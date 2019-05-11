@@ -17,7 +17,7 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
-        $posts = Post::paginate(2);
+        $posts = Post::paginate(6);
 
 
 
@@ -52,9 +52,12 @@ class AdminPostsController extends Controller
     }
 
 
-    public function show($id)
+    public function show()
     {
-        //
+//        $posts = Post::all();
+//        $c = count($posts);
+////        $count_post=$posts->count();
+//        return view('admin.index', compact('c'));
     }
 
     public function edit($id)

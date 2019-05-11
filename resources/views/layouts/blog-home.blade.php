@@ -49,9 +49,7 @@
                 <li>
                     <a href="{{ url('/services') }}">Services</a>
                 </li>
-                <li>
-                    <a href="{{ url('/contact') }}">Contact</a>
-                </li>
+
 
 
 
@@ -75,7 +73,7 @@
                         @endif
                         </li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
                         <li>
-                            <a href=""> Welcome {{Auth::user()->name}}</a>
+                            <a href="{{url('/user', Auth::user()->id)}}"> Welcome {{Auth::user()->name}}</a>
                         </li>
                     @endif
 
@@ -98,20 +96,14 @@
 
 
             @yield('sps')
+            @yield('contents')
 
             <hr>
 
 
 
             <!-- Pager -->
-            <ul class="pager">
-                <li class="previous">
-                    <a href="#">&larr; Older</a>
-                </li>
-                <li class="next">
-                    <a href="#">Newer &rarr;</a>
-                </li>
-            </ul>
+
 
         </div>
 
@@ -138,6 +130,7 @@
             <!-- Blog Categories Well -->
         @yield('category')
 
+
         <!-- Side Widget Well -->
 
 
@@ -149,15 +142,7 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </footer>
+
 
 </div>
 <!-- /.container -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Photo;
 use App\Post;
 use App\User;
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class HomeshowController extends Controller
         $ids = $id;
         $user = User::where('id', '=', $ids)->get();
         //return $user;
-       return view('profiles', compact('user'));
+        return view('profiles', compact('user','ids'));
     }
 
     public function edit($id)
@@ -78,7 +79,21 @@ class HomeshowController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        if(trim($request->password) == ''){
+            $input = $request->except('password');
+        } else{$input = $request->all();
+            $input['password'] = bcrypt($request->password);
+        }
+        if($file = $request->file('photo_id')){
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['file'=>$name]);
+            $input['photo_id'] = $photo->id;
+        }
+        $user->update($input);
+        return redirect()->back();
+
     }
 
     public function destroy($id)

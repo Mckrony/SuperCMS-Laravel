@@ -49,9 +49,7 @@
                 <li>
                     <a href="{{ url('/services') }}">Services</a>
                 </li>
-                <li>
-                    <a href="{{ url('/contact') }}">Contact</a>
-                </li>
+
 
 
 
@@ -70,13 +68,14 @@
                         <li>
                             <a href="{{ url('/admin') }}"> <img height="30" width="50" title="Admin Access Panel" src="{{ asset('images/admin.png')}}" class="img-fluid" alt="Responsive image"></a>
                         </li>
+
+
+                        @endif
                         </li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
                         <li>
-                            <a href=""> Welcome {{Auth::user()->name}}</a>
+                            <a href="{{url('/user', Auth::user()->id)}}"> Welcome {{Auth::user()->name}}</a>
                         </li>
-
                     @endif
-                @endif
 
 
             </ul>
@@ -87,20 +86,44 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container">
-    @yield('content')
-    <hr>
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-            <!-- /.col-lg-12 -->
+<div id="page-wrapper">
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-lg-15">
+
+
+
+            @yield('sps')
+            @yield('contents')
+
+
+
+
+
+            <!-- Pager -->
+
+
         </div>
-        <!-- /.row -->
-    </footer>
+    </div>
+
+        <!-- Blog Sidebar Widgets Column -->
+
+
+    </div>
+    <!-- /.row -->
+
+
+
+    <!-- Footer -->
+
 
 </div>
+<!-- /.container -->
+
+<!-- jQuery -->
 <script src="{{asset('js/libs.js')}}"></script>
 
 </body>
